@@ -132,6 +132,7 @@ li.urgent-item { border-left:3px solid var(--u); padding-left:12px; }
 .mylist textarea { width:100%; font:inherit; font-size:.9rem; color:inherit; background:var(--tint); border:0; border-radius:4px; padding:10px; }
 .howto { background:var(--tint); border-radius:16px; padding:16px 20px; margin:1.4em 0; }
 .howto p { margin:.4em 0; }
+.note.small, .howto .small { color:var(--muted); }
 .howto .grade { margin:0 .2em; }
 .h-small { font-size:1.05rem; margin:0 0 .3em; }
 .clearest { margin:1.4em 0; }
@@ -150,6 +151,7 @@ li.urgent-item { border-left:3px solid var(--u); padding-left:12px; }
 .csec h2 { margin-top:1.6em; }
 .claim .stmt { font-family:var(--serif); font-weight:600; font-size:1.18rem; line-height:1.35; margin:0 0 .35em; color:var(--ink); }
 .claim .strength { margin:0 0 .4em; }
+.claim .studied { margin:0 0 .4em; color:var(--muted); }
 .claim .strength .small { color:var(--faint); }
 .claim .sum { margin:.2em 0 .6em; }
 .claim mark { background:var(--tint); color:var(--accent); border-radius:3px; padding:0 2px; }
@@ -200,6 +202,7 @@ footer a { color:var(--faint); }
 .intro { background:var(--tint); border-radius:20px; padding:22px 24px; margin:0 0 1.6em; }
 .intro h2 { margin:0 0 .4em; font-size:1.55rem; }
 .intro p:last-child { margin-bottom:0; }
+.formwarn { background:var(--tint); border-radius:12px; padding:10px 14px; font-size:.92rem; }
 .share { margin-top:3em; padding-top:1.4em; border-top:1px solid var(--rule); scroll-margin-top:16px; }
 .share fieldset { border:0; padding:0; margin:1.2em 0 0; }
 .share legend { font-weight:500; padding:0; margin-bottom:.5em; }
