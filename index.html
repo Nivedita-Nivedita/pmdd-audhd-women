@@ -49,7 +49,7 @@
 <nav class="pillars" aria-label="Main sections">
 <a class="p1" href="symptoms/index.html"><span class="k">Recognise it</span><b>Symptoms</b><span class="d">255 documented signs of PMDD, ADHD and autism. Tick what fits and take the list to an appointment.</span></a>
 <a class="p2" href="guides/index.html"><span class="k">Understand it</span><b>Guides</b><span class="d">42 plain-language guides, from getting assessed to treatment, pregnancy and burnout.</span></a>
-<a class="p3" href="library/index.html"><span class="k">Check the evidence</span><b>Library</b><span class="d">616 summarised papers, plus 101 popular claims checked against them.</span></a>
+<a class="p3" href="library/index.html"><span class="k">Check the evidence</span><b>Library</b><span class="d">616 summarised papers, plus 101 common claims restated as what the research supports.</span></a>
 </nav>
 <nav class="doors" aria-label="Main sections">
   <a href="pmdd.html"><b>PMDD →</b><span>What it is, how it is diagnosed, how it meets ADHD and autism, and what helps.</span></a>
@@ -67,7 +67,7 @@
 <ol class="plain entries numbered"><li><a class="title" href="guides/G01-getting-assessed-as-an-adult-woman.html">Getting assessed as an adult woman</a><p>How adult ADHD assessment works for women, why women are recognised late, and what screening tools can and cannot tell you.</p></li><li><a class="title" href="guides/G05-adhd-and-pmdd.html">ADHD + PMDD: what the evidence says</a><p>Women with ADHD screen positive for PMDD more often in several studies; how much more varies with the measure and sample, and we did not find a study confirming it with prospective daily ratings.</p></li><li><a class="title" href="guides/G13-autism-traits-sensory-audhd.html">Autism traits, sensory sensitivity &amp; &quot;AuDHD&quot;</a><p>ADHD and autism often co-occur; sensory sensitivity and camouflaging are not unique to autism; online screeners cannot confirm a diagnosis.</p></li><li><a class="title" href="guides/G39-pmdd-treatments-ranked-by-evidence.html">PMDD treatments ranked by evidence</a><p>SSRIs have the strongest evidence; both continuous and luteal-phase dosing help, and the 2024 Cochrane review favours continuous dosing on average. Drospirenone pills offer modest benefit. GnRH agonists work but have significant effects. Surgery, CBT and supplements rest on small or PMS-only evidence, and nothing has been tested specifically in women with ADHD.</p></li><li><a class="title" href="guides/G11-burnout-recovery.html">Burnout recovery: what we know and don&#x27;t</a><p>What burnout means (occupational, autistic, &quot;ADHD burnout&quot;), its heavy overlap with depression, and contributors worth checking.</p></li><li><a class="title" href="guides/G40-starting-and-adjusting-adhd-medication.html">Starting and adjusting ADHD medication as a woman</a><p>Stimulants and atomoxetine are the medicines with consistent adult evidence, but Cochrane rates much of it low certainty and the trials skew male. Appetite, sleep and heart-rate effects are common and need monitoring. About half of adults stop within a year, and women are no more likely to stop. Evidence on sex differences and on premenstrual dosing is thin.</p></li></ol>
 <h2>Find your way</h2>
 <p class="inline-links"><a href="start.html#adhd-autism">I think I might have ADHD or be autistic</a> <span>·</span> <a href="start.html#cycle">My cycle changes everything</a> <span>·</span> <a href="start.html#burnout">I&#x27;m exhausted or burnt out</a> <span>·</span> <a href="start.html#life-stages">I&#x27;m pregnant, a new mother, or in midlife</a> <span>·</span> <a href="start.html#body">My body: gut, allergies, POTS, pain</a> <span>·</span> <a href="start.html#medication">I&#x27;m starting or changing ADHD medication</a> <span>·</span> <a href="start.html#students">I&#x27;m a student or academic</a> <span>·</span> <a href="start.html#clinicians">I&#x27;m a clinician</a> <span>·</span> <a href="start.html#support">I support someone: partner, parent, manager</a></p>
-<p class="small">Also: <a href="topics/index.html">the eleven research topics and how they connect</a> · <a href="claims/index.html">Claim check: 101 popular claims</a> · <a href="tools.html">assessment tools</a> · <a href="glossary.html">glossary</a>.</p>
+<p class="small">Also: <a href="topics/index.html">the eleven research topics and how they connect</a> · <a href="claims/index.html">Claim check: 101 common claims, restated</a> · <a href="tools.html">assessment tools</a> · <a href="glossary.html">glossary</a>.</p>
 <p class="small">Every claim carries an evidence grade, from <span class="grade g-established">Established</span> to <span class="grade g-popular-unsupported">No direct evidence</span>. <a href="about.html#method">What the grades mean</a>.</p>
 <section id="share" class="share" aria-labelledby="share-h">
 <h2 id="share-h">Share with us</h2>
@@ -94,6 +94,11 @@
 <script>
 (() => {
   const f = document.getElementById('share-form'), st = document.getElementById('sf-status');
+  const cl = new URLSearchParams(location.search).get('claim');
+  if (cl && /^[a-z0-9-]+$/.test(cl)) {
+    f.message.value = 'About the Claim check entry "' + cl + '": ';
+    const c = f.querySelector('input[name=what][value="Correction"]'); if (c) c.checked = true;
+  }
   const show = (id, on) => document.getElementById(id).hidden = !on;
   ['sf-message','sf-email','sf-consent'].forEach(id => document.getElementById(id).addEventListener('input', () => show(id + '-err', false)));
   f.addEventListener('submit', async (e) => {
