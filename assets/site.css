@@ -106,6 +106,8 @@ details.contents ol { margin:.6em 0 .2em; padding-left:1.3em; font-size:.95rem; 
 .pager small { display:block; color:var(--faint); }
 
 /* claims */
+.claim-toc { columns:2 16rem; column-gap:2rem; margin:1.2em 0 0; }
+.claim-toc li { padding:3px 0; break-inside:avoid; }
 .claim { padding:22px 0; border-top:1px solid var(--rule); scroll-margin-top:20px; }
 .claim .said { font-family:var(--serif); font-size:1.2rem; margin:.3em 0 .5em; }
 .claim .better { color:var(--ink); }
