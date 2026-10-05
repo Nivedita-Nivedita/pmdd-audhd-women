@@ -92,7 +92,8 @@ ol.numbered > li::before { content:counter(n, decimal-leading-zero); position:ab
 .g-established, .v-true, .v-mostly-true { color:var(--e); }
 .g-supported, .v-partly-true { color:var(--s); }
 .g-preliminary, .v-overstated { color:var(--p); }
-.g-popular-unsupported, .v-unsupported, .v-false { color:var(--u); }
+.g-popular-unsupported, .v-untested { color:var(--faint); }
+.v-contradicted, .v-unsupported, .v-false { color:var(--u); }
 
 .note { background:var(--tint); padding:14px 18px; border-radius:14px; }
 .urgent { border-left:3px solid var(--u); padding:4px 0 4px 16px; font-size:1.1rem; }
