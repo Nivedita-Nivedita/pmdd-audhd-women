@@ -3,9 +3,9 @@
 @font-face { font-family:"Bricolage Grotesque"; src:url("../fonts/BricolageGrotesque-latin.woff2") format("woff2"); font-weight:400 700; font-display:swap; }
 @font-face { font-family:"Lexend"; src:url("../fonts/Lexend-latin.woff2") format("woff2"); font-weight:300 600; font-display:swap; }
 :root {
-  --bg:#FFF8F6; --ink:#1C2450; --muted:#5A6190; --faint:#7A80A6; --rule:#F0DCE0; --tint:#E8ECFA; --blush:#F7DDE3;
+  --bg:#FFF8F6; --ink:#1C2450; --muted:#535A88; --faint:#5F6690; --rule:#F0DCE0; --tint:#E8ECFA; --blush:#F7DDE3;
   --rose:#C9708A; --rose-ink:#8C3B55; --accent:#1E3A9E; --on-accent:#FFF8F6;
-  --e:#2B7A58; --s:#3557B7; --p:#9E5F10; --u:#B03A57;
+  --e:#236B4C; --s:#3557B7; --p:#8A520A; --u:#B03A57;
   --serif:"Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --sans:"Lexend", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --mono: ui-monospace, Menlo, Consolas, monospace;
@@ -173,7 +173,7 @@ footer a { color:var(--faint); }
 .chip input { position:absolute; opacity:0; width:1px; height:1px; }
 .chip span { font-size:.88rem; border:1px solid var(--rule); background:var(--bg); color:var(--ink); border-radius:999px; padding:6px 14px; }
 .chip input:checked + span { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
-.chip.who input:checked + span { background:var(--rose); border-color:var(--rose); color:var(--on-accent); }
+.chip.who input:checked + span { background:var(--rose-ink); border-color:var(--rose); color:var(--on-accent); }
 .chip input:focus-visible + span { outline:2px solid var(--accent); outline-offset:2px; }
 .share .fl { display:block; font-weight:500; margin:1.1em 0 .35em; }
 .share textarea, .share input[type=email], .share input:not([type]) { width:100%; font:inherit; color:var(--ink); background:var(--bg); border:1px solid var(--rule); border-radius:12px; padding:10px 12px; }
@@ -185,6 +185,9 @@ footer a { color:var(--faint); }
 .share .send { font:inherit; background:var(--accent); color:var(--on-accent); border:0; border-radius:999px; padding:9px 22px; cursor:pointer; }
 .share .err { color:var(--u); font-size:.85rem; margin:.3em 0 0; }
 .hp { position:absolute; left:-9999px; }
+.urgent-box { border-left:4px solid var(--u); background:var(--tint); padding:14px 18px; border-radius:0; margin:0 0 1.2em; }
+.urgent-box p:last-child { margin-bottom:0; }
+a.call { font-weight:500; white-space:nowrap; }
 .theme-toggle { font:inherit; font-size:.88rem; color:var(--accent); background:var(--tint); border:0; border-radius:999px; padding:6px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; }
 .theme-toggle:hover { outline:2px solid var(--accent); }
 .theme-toggle svg { width:16px; height:16px; }
