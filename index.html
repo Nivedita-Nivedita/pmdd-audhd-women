@@ -26,11 +26,17 @@
 <main id="content"><div class="col">
 <h1>PMDD &amp; AuDHD in Women</h1>
 <p class="lede">Research on PMDD, ADHD and autism in women, compiled for the people living it.</p>
-<svg class="art" viewBox="0 0 520 140" role="img" aria-label="A wave for the cycle meeting two overlapping circles">
+<svg class="art" viewBox="0 0 520 140" role="img" aria-label="A wave for the cycle meeting two linked rings, like a Hopf link">
 <rect class="t" x="0" y="0" width="300" height="140" rx="22"/><rect class="b" x="300" y="0" width="220" height="140" rx="22"/>
 <path class="a" d="M22 82 C 72 32, 122 32, 172 82 S 262 122, 300 76" fill="none" stroke-width="3" stroke-linecap="round"/>
-<circle cx="372" cy="70" r="36" fill="none" class="a" stroke-width="3"/><circle cx="430" cy="70" r="36" fill="none" class="r" stroke-width="3"/>
+<circle cx="430" cy="70" r="36" fill="none" class="r" stroke-width="3"/><path d="M395.1 42.4 A36 36 0 0 1 405.4 56.5" fill="none" class="halo" stroke-width="10" stroke-linecap="round"/><circle cx="372" cy="70" r="36" fill="none" class="a" stroke-width="3"/><path d="M406.9 97.6 A36 36 0 0 1 396.6 83.5" fill="none" class="halo" stroke-width="10" stroke-linecap="round"/><path d="M408.5 99 A36 36 0 0 1 395 82" fill="none" class="r" stroke-width="3" stroke-linecap="round"/>
 <circle class="b" cx="172" cy="82" r="7"/><circle cx="172" cy="82" r="7" fill="none" class="r" stroke-width="2"/></svg>
+<section class="intro" aria-labelledby="hello">
+<h2 id="hello">Hello, I'm Nivedita</h2>
+<p>I'm a mathematician with a deep interest in cognitive neuroscience, and I have lived experience of what this site is about. I built it to gather the research in one place, to help people navigate diagnosis and find better ways to manage their symptoms day to day.</p>
+<p>I'd love to connect, especially if you're an academic, clinician or counsellor working in this area. If there's a paper we should add, a claim we should check or a symptom we've missed, please <a href="#share">tell me below</a>.</p>
+<p class="more"><a href="https://www.n-nivedita.com/">More about me and my research →</a></p>
+</section>
 <nav class="doors" aria-label="Main sections">
   <a href="pmdd.html"><b>PMDD →</b><span>What it is, how it is diagnosed, how it meets ADHD and autism, and what helps.</span></a>
   <a href="audhd.html"><b>AuDHD →</b><span>Autism and ADHD in women: recognition, masking, emotion, the body and burnout.</span></a>
@@ -55,12 +61,58 @@
 <li><a class="title" href="tools.html">Assessment tools</a><p>Questionnaires used in research and clinics, and what they can and can't do.</p></li>
 </ul>
 <p class="small">Every claim carries an evidence grade, from <span class="grade g-established">Established</span> to <span class="grade g-popular-unsupported">Unsupported</span>. <a href="about.html#method">What the grades mean</a>.</p>
+<section id="share" class="share" aria-labelledby="share-h">
+<h2 id="share-h">Share with us</h2>
+<p class="small">Suggest a paper, a claim, a symptom, a correction or anything else. Please don't include private health details about yourself or others. If you need help now, see <a href="help.html">crisis support</a>.</p>
+<form id="share-form" action="https://formspree.io/f/xqpezreg" method="POST" novalidate>
+<fieldset><legend>What are you sharing? <span class="small">Pick any that apply</span></legend><div class="chips"><label class="chip what"><input type="checkbox" name="what" value="Paper to add"><span>Paper to add</span></label><label class="chip what"><input type="checkbox" name="what" value="Claim to check"><span>Claim to check</span></label><label class="chip what"><input type="checkbox" name="what" value="Symptom we&#x27;ve missed"><span>Symptom we&#x27;ve missed</span></label><label class="chip what"><input type="checkbox" name="what" value="Correction"><span>Correction</span></label><label class="chip what"><input type="checkbox" name="what" value="Book or resource"><span>Book or resource</span></label><label class="chip what"><input type="checkbox" name="what" value="Lived experience"><span>Lived experience</span></label><label class="chip what"><input type="checkbox" name="what" value="Collaboration"><span>Collaboration</span></label><label class="chip what"><input type="checkbox" name="what" value="Other"><span>Other</span></label></div></fieldset>
+<fieldset><legend>About you <span class="small">Optional</span></legend><div class="chips"><label class="chip who"><input type="radio" name="who" value="Academic or researcher"><span>Academic or researcher</span></label><label class="chip who"><input type="radio" name="who" value="Clinician"><span>Clinician</span></label><label class="chip who"><input type="radio" name="who" value="Counsellor or therapist"><span>Counsellor or therapist</span></label><label class="chip who"><input type="radio" name="who" value="Lived experience"><span>Lived experience</span></label><label class="chip who"><input type="radio" name="who" value="Partner or family"><span>Partner or family</span></label><label class="chip who"><input type="radio" name="who" value="Student"><span>Student</span></label></div></fieldset>
+<label class="fl" for="sf-message">Your message</label>
+<textarea id="sf-message" name="message" rows="5" required placeholder="The 2024 cohort on luteal-phase sleep changes would fit the PMDD symptoms list"></textarea>
+<p class="err" id="sf-message-err" hidden>Write a short message first.</p>
+<label class="fl" for="sf-link">Link or DOI <span class="small">Optional</span></label>
+<input id="sf-link" name="link" placeholder="10.1016/j.jad.2024.01.066">
+<div class="two">
+ <div><label class="fl" for="sf-name">Name <span class="small">Optional</span></label><input id="sf-name" name="name" autocomplete="name" placeholder="Dr Jane Smith"></div>
+ <div><label class="fl" for="sf-email">Email <span class="small">Only if you'd like a reply</span></label><input id="sf-email" name="email" type="email" autocomplete="email" placeholder="jane@university.edu"></div>
+</div>
+<p class="err" id="sf-email-err" hidden>Check the email address, or leave it blank.</p>
+<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+<label class="consent"><input type="checkbox" id="sf-consent" name="consent" value="yes"> I'm happy for this to be used to improve the site.</label>
+<p class="err" id="sf-consent-err" hidden>Tick the box to send.</p>
+<p><button type="submit" class="send">Send</button> <span class="small" id="sf-status" role="status"></span></p>
+<p class="small">Messages are delivered to Nivedita by Formspree. Nothing else on this site collects data.</p>
+</form>
+<script>
+(() => {
+  const f = document.getElementById('share-form'), st = document.getElementById('sf-status');
+  const show = (id, on) => document.getElementById(id).hidden = !on;
+  ['sf-message','sf-email','sf-consent'].forEach(id => document.getElementById(id).addEventListener('input', () => show(id + '-err', false)));
+  f.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = f.message.value.trim(), em = f.email.value.trim();
+    const okMsg = msg.length > 0, okEm = !em || /^[^@ ]+@[^@ ]+[.][^@ ]+$/.test(em), okC = f.consent.checked;
+    show('sf-message-err', !okMsg); show('sf-email-err', !okEm); show('sf-consent-err', !okC);
+    if (!okMsg || !okEm || !okC) return;
+    const data = new FormData(f);
+    data.set('what', [...f.querySelectorAll('input[name=what]:checked')].map(i => i.value).join(', ') || 'Not specified');
+    data.set('_subject', 'Site submission: ' + data.get('what'));
+    st.textContent = 'Sending…';
+    try {
+      const r = await fetch(f.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (r.ok) { f.reset(); st.textContent = 'Sent. Thank you.'; }
+      else { st.textContent = "That didn't send. Try again in a moment."; }
+    } catch (err) { st.textContent = "That didn't send. Check your connection and try again."; }
+  });
+})();
+</script>
+</section>
 </div></main>
 <footer class="site"><div class="inner">
   <span>PMDD &amp; AuDHD in Women</span>
   <a href="topics/index.html">Topics</a><a href="tools.html">Assessment tools</a><a href="books.html">Books</a>
   <a href="about.html">About</a><a href="about.html#method">Evidence grades</a><a href="help.html">Crisis support</a>
-  <span>Not medical advice · No cookies or tracking</span>
+  <a href="index.html#share">Share with us</a><span>Not medical advice · No cookies or tracking</span>
 </div></footer>
 <script>
 (() => {
