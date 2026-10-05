@@ -45,7 +45,7 @@ const e = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;',
 let P = [], SHOWN = 50;
 document.getElementById('more').addEventListener('click', () => { SHOWN += 50; draw(); });
 function draw() {
-  const q = document.getElementById('q').value.toLowerCase(), th = document.getElementById('th').value,
+  const q = document.getElementById('q').value.trim().toLowerCase().replace(/^https?:\/\/(dx\.)?doi\.org\//, '').replace(/^doi:\s*/, ''), th = document.getElementById('th').value,
         gr = document.getElementById('gr').value, oa = document.getElementById('oa').checked;
   const rows = P.filter(p => (!th || p.thread === th) && (!gr || p.grade === gr) && (!oa || p.open_access) &&
     (!q || [p.title, p.first_author, p.journal, p.plain_language, p.key_finding, p.doi, String(p.year)].join(' ').toLowerCase().includes(q)))
