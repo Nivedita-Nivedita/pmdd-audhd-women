@@ -7,7 +7,9 @@
 <meta name="description" content="Registry evidence on preterm birth, preeclampsia and severe morbidity in women with ADHD or autism, including where studies disagree and how much is explained by co-occurring conditions and modifiable risks.">
 <meta property="og:title" content="For clinicians: pregnancy and birth outcomes in women with ADHD or autism — PMDD &amp; AuDHD in Women">
 <meta property="og:description" content="Registry evidence on preterm birth, preeclampsia and severe morbidity in women with ADHD or autism, including where studies disagree and how much is explained by co-occurring conditions and modifiable risks.">
-<meta name="theme-color" content="#6d2a5f">
+<meta name="theme-color" content="#1E3A9E">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="preload" href="../fonts/Lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -15,6 +17,7 @@
 <header class="site">
   <div class="top">
     <a class="brand" href="../index.html">PMDD &amp; AuDHD in Women</a>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span>Dark mode</span></button>
     <nav class="main" aria-label="Main"><ul><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../symptoms/index.html">Symptoms</a></li><li><a href="../start.html">Start here</a></li><li><a href="../guides/index.html" aria-current="page">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html">Library</a></li><li><a href="../glossary.html">Glossary</a></li></ul></nav>
     <details class="menu"><summary>Menu</summary><nav class="main" aria-label="Main"><ul><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../symptoms/index.html">Symptoms</a></li><li><a href="../start.html">Start here</a></li><li><a href="../guides/index.html" aria-current="page">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html">Library</a></li><li><a href="../glossary.html">Glossary</a></li><li><a href="../topics/index.html">Topics</a></li><li><a href="../help.html">Crisis support</a></li></ul></nav></details>
   </div>
@@ -195,4 +198,25 @@
   <a href="../about.html">About</a><a href="../about.html#method">Evidence grades</a><a href="../help.html">Crisis support</a>
   <span>Not medical advice · No cookies or tracking</span>
 </div></footer>
+<script>
+(() => {
+  const btn = document.getElementById("theme-toggle"), root = document.documentElement;
+  const sun = '<path d="M12 4V2M12 22v-2M4 12H2M22 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M5.6 18.4l-1.4 1.4M19.8 4.2l-1.4 1.4"/><circle cx="12" cy="12" r="4"/>';
+  const moon = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  function paint() {
+    const d = isDark();
+    btn.querySelector("span").textContent = d ? "Light mode" : "Dark mode";
+    btn.querySelector("svg").innerHTML = d ? sun : moon;
+    btn.setAttribute("aria-label", d ? "Switch to light mode" : "Switch to dark mode");
+  }
+  btn.addEventListener("click", () => {
+    root.dataset.theme = isDark() ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+    paint();
+  });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", paint);
+  paint();
+})();
+</script>
 </body></html>
