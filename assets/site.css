@@ -106,6 +106,18 @@ details.contents ol { margin:.6em 0 .2em; padding-left:1.3em; font-size:.95rem; 
 .pager small { display:block; color:var(--faint); }
 
 /* claims */
+.tag { font-size:.75rem; letter-spacing:.03em; text-transform:uppercase; color:var(--faint); }
+.tag.strong { color:var(--accent); }
+li.sym { padding:16px 0; border-top:1px solid var(--rule); scroll-margin-top:20px; }
+li.sym label { display:flex; gap:12px; align-items:flex-start; cursor:pointer; }
+li.sym input { margin-top:.45em; accent-color:var(--accent); width:1.05rem; height:1.05rem; flex:none; }
+li.sym .said { font-family:var(--serif); font-size:1.12rem; }
+li.sym ul.ex { margin:.4em 0 .3em 2.1rem; padding-left:1em; color:var(--muted); font-size:.95rem; }
+li.sym p.small, li.sym details { margin-left:2.1rem; }
+li.urgent-item { border-left:3px solid var(--u); padding-left:12px; }
+.mylist { position:sticky; bottom:0; background:var(--bg); border-top:1px solid var(--rule); padding:10px 0; margin-top:24px; }
+.mylist button { font:inherit; font-size:.9rem; color:var(--accent); background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; }
+.mylist textarea { width:100%; font:inherit; font-size:.9rem; color:inherit; background:var(--tint); border:0; border-radius:4px; padding:10px; }
 .claim-toc { columns:2 16rem; column-gap:2rem; margin:1.2em 0 0; }
 .claim-toc li { padding:3px 0; break-inside:avoid; }
 .claim { padding:22px 0; border-top:1px solid var(--rule); scroll-margin-top:20px; }
