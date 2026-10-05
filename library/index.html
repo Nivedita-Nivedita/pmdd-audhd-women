@@ -21,8 +21,9 @@
   <div class="top">
     <a class="brand" href="../index.html">PMDD &amp; AuDHD in Women</a>
     <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span>Dark mode</span></button>
-    <nav class="main" aria-label="Main"><ul><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../symptoms/index.html">Symptoms</a></li><li><a href="../start.html">Start here</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../glossary.html">Glossary</a></li></ul></nav>
-    <details class="menu"><summary>Menu</summary><nav class="main" aria-label="Main"><ul><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../symptoms/index.html">Symptoms</a></li><li><a href="../start.html">Start here</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../glossary.html">Glossary</a></li><li><a href="../topics/index.html">Topics</a></li><li><a href="../help.html">Crisis support</a></li></ul></nav></details>
+    <nav class="main" aria-label="Main"><ul><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../symptoms/index.html">Symptoms</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../claims/index.html">Claim check</a></li></ul></nav>
+    <a class="help-btn desktop-only" href="../help.html">Get help now</a>
+    <details class="menu"><summary>Menu</summary><nav class="main" aria-label="Main"><ul><li><a class="help-btn" href="../help.html">Get help now</a></li><li><a href="../symptoms/index.html">Symptoms</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../search.html">Search</a></li><li><a href="../start.html">Start here</a></li><li><a href="../topics/index.html">Topics</a></li><li><a href="../glossary.html">Glossary</a></li></ul></nav></details>
   </div>
   <p class="notice">Beta · Guides not yet clinically reviewed · Not medical advice · <a href="../help.html">Crisis support</a></p>
 </header>
@@ -40,7 +41,7 @@
 <p><button type="button" id="more" class="linkish" hidden>Show more</button></p>
 <noscript><p>Search needs JavaScript. You can browse papers on each <a href="../topics/index.html">topic page</a>.</p></noscript>
 <script>
-const NAMES = {"01-core-adhd": "ADHD in women", "02-giftedness-masking": "Giftedness & masking", "03-emotion-rejection": "Emotion & rejection sensitivity", "04-hormones-pmdd": "Hormones & PMDD", "05-immune-allergy": "Immune system & allergy", "06-gut-pelvis": "Gut & pelvis", "07-iron-energy": "Iron & energy", "08-circadian-sleep": "Circadian rhythm & sleep", "09-body-daily-function": "Body & daily function", "10-autism-sensory-burnout": "Autism overlap, sensory & burnout", "11-life-stages-populations": "Life stages & populations"}, DL = {"consensus": "Consensus statement", "guideline": "Guideline", "meta-analysis": "Meta-analysis", "systematic-review": "Systematic review", "RCT": "Randomised trial", "cohort": "Cohort study", "registry": "Registry study", "case-control": "Case-control study", "cross-sectional": "Cross-sectional study", "validation": "Questionnaire validation", "narrative-review": "Narrative review", "mechanistic": "Laboratory or mechanism study", "other": "Other design (often qualitative)"};
+const NAMES = {"01-core-adhd": "ADHD in women", "02-giftedness-masking": "Giftedness & masking", "03-emotion-rejection": "Emotion & rejection sensitivity", "04-hormones-pmdd": "Hormones & PMDD", "05-immune-allergy": "Immune system & allergy", "06-gut-pelvis": "Gut & pelvis", "07-iron-energy": "Iron & energy", "08-circadian-sleep": "Circadian rhythm & sleep", "09-body-daily-function": "Body & daily function", "10-autism-sensory-burnout": "Autism overlap, sensory & burnout", "11-life-stages-populations": "Life stages & populations"}, DL = {"consensus": "Consensus statement", "guideline": "Guideline", "meta-analysis": "Meta-analysis", "systematic-review": "Systematic review", "RCT": "Randomised trial", "cohort": "Cohort study", "registry": "Registry study", "case-control": "Case-control study", "cross-sectional": "Cross-sectional study", "validation": "Questionnaire validation", "narrative-review": "Narrative review", "mechanistic": "Laboratory or mechanism study", "other": "Other design (often qualitative)"}, SLUG = {"01-core-adhd": "core-adhd", "02-giftedness-masking": "giftedness-masking", "03-emotion-rejection": "emotion-rejection", "04-hormones-pmdd": "hormones-pmdd", "05-immune-allergy": "immune-allergy", "06-gut-pelvis": "gut-pelvis", "07-iron-energy": "iron-energy", "08-circadian-sleep": "circadian-sleep", "09-body-daily-function": "body-daily-function", "10-autism-sensory-burnout": "autism-sensory-burnout", "11-life-stages-populations": "life-stages-populations"};
 const e = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let P = [], SHOWN = 50;
 document.getElementById('more').addEventListener('click', () => { SHOWN += 50; draw(); });
@@ -55,7 +56,7 @@ function draw() {
   document.getElementById('list').innerHTML = rows.slice(0, SHOWN).map(p => `<details class="paper"><summary>
     <span class="t">${e(p.title)}</span><br><span class="small">${e(p.first_author)} ${p.year} · ${e(p.journal)} · ${e(NAMES[p.thread] || '')} · <span class="tag">${e(DL[p.type] || p.type)}</span></span></summary>
     <div class="body"><p>${e(p.plain_language)}</p><p class="small"><b>Key finding:</b> ${e(p.key_finding)}</p>
-    <p class="small"><a href="https://doi.org/${e(p.doi)}">Read the paper</a>${p.open_access ? ' · free to read' : ''}</p></div></details>`).join('')
+    <p class="small"><a href="https://doi.org/${e(p.doi)}">Read the paper</a>${p.open_access ? ' · free to read' : ''} · <a href="../topics/${e(SLUG[p.thread] || '')}.html">Topic: ${e(NAMES[p.thread] || '')}</a></p></div></details>`).join('')
     ;
 }
 fetch('papers.json').then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(d => {
@@ -67,7 +68,7 @@ fetch('papers.json').then(r => { if (!r.ok) throw new Error(); return r.json(); 
 </div></main>
 <footer class="site"><div class="inner">
   <span>PMDD &amp; AuDHD in Women</span>
-  <a href="../topics/index.html">Topics</a><a href="../tools.html">Assessment tools</a><a href="../books.html">Books</a><a href="../references.html">Guidelines</a>
+  <a href="../start.html">Start here</a><a href="../search.html">Search</a><a href="../topics/index.html">Topics</a><a href="../glossary.html">Glossary</a><a href="../tools.html">Assessment tools</a><a href="../books.html">Books</a><a href="../references.html">Guidelines</a>
   <a href="../about.html">About</a><a href="../about.html#method">Evidence grades</a><a href="../help.html">Crisis support</a>
   <a href="../index.html#share">Share with us</a><span>Not medical advice · No cookies or tracking</span>
 </div></footer>

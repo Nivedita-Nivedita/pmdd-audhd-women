@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found — PMDD &amp; AuDHD in Women</title>
-<meta name="description" content="Research on PMDD, ADHD and autism in women, compiled for the people living it.">
-<meta property="og:title" content="Page not found — PMDD &amp; AuDHD in Women">
-<meta property="og:description" content="Research on PMDD, ADHD and autism in women, compiled for the people living it.">
+<title>Search — PMDD &amp; AuDHD in Women</title>
+<meta name="description" content="Search symptoms, guides, claims and research.">
+<meta property="og:title" content="Search — PMDD &amp; AuDHD in Women">
+<meta property="og:description" content="Search symptoms, guides, claims and research.">
 <meta name="theme-color" content="#1E3A9E">
-<link rel="canonical" href="https://www.n-nivedita.com/pmdd-audhd-women/404.html">
+<link rel="canonical" href="https://www.n-nivedita.com/pmdd-audhd-women/search.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.n-nivedita.com/pmdd-audhd-women/404.html">
+<meta property="og:url" content="https://www.n-nivedita.com/pmdd-audhd-women/search.html">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="preload" href="fonts/Lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
@@ -28,7 +28,33 @@
   <p class="notice">Beta · Guides not yet clinically reviewed · Not medical advice · <a href="help.html">Crisis support</a></p>
 </header>
 <main id="content"><div class="col">
-<h1>Page not found</h1><p>Try the <a href="index.html">home page</a> or <a href="guides/index.html">all guides</a>.</p>
+<h1>Search</h1>
+<form class="sitesearch" role="search" action="search.html" method="get">
+<label for="site-q" class="skip">Search the site</label>
+<input id="site-q" name="q" type="search" placeholder="Search symptoms, guides and research: try luteal, POTS or masking">
+<button type="submit">Search</button></form>
+<p class="small" id="sr-count" role="status" aria-live="polite"></p>
+<div class="results" id="sr"></div>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search).get('q') || '';
+  const box = document.getElementById('site-q'); box.value = q;
+  const e = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const ORDER = ["Guide", "Symptom", "Claim", "Topic", "Glossary", "Paper"], NAME = {Guide:"Guides", Symptom:"Symptoms", Claim:"Claim check", Topic:"Topics", Glossary:"Glossary", Paper:"Research papers"};
+  if (!q.trim()) { document.getElementById('sr-count').textContent = 'Type a word or phrase, for example luteal, ferritin, masking or POTS.'; return; }
+  fetch('search.json').then(r => r.json()).then(idx => {
+    const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+    const hits = idx.filter(x => { const h = (x.t + ' ' + x.d).toLowerCase(); return words.every(w => h.includes(w)); });
+    document.getElementById('sr-count').textContent = hits.length ? hits.length + ' results for "' + q + '"' : 'No results for "' + q + '". Try fewer or different words.';
+    document.getElementById('sr').innerHTML = ORDER.map(k => {
+      const g = hits.filter(x => x.k === k); if (!g.length) return '';
+      return '<h2>' + NAME[k] + ' <span class="small">' + g.length + '</span></h2><ul class="plain entries">' +
+        g.slice(0, 12).map(x => '<li><a class="title" href="' + e(x.u) + '">' + e(x.t) + '</a><p>' + e(x.d) + '</p></li>').join('') +
+        (g.length > 12 ? '<li><p class="small">' + (g.length - 12) + ' more. Refine the search to narrow them down.</p></li>' : '') + '</ul>';
+    }).join('');
+  }).catch(() => { document.getElementById('sr-count').textContent = "Search didn't load. Refresh the page and try again."; });
+})();
+</script>
 </div></main>
 <footer class="site"><div class="inner">
   <span>PMDD &amp; AuDHD in Women</span>
