@@ -3,37 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research library · PMDD &amp; AuDHD in Women</title>
+<title>Research library — PMDD &amp; AuDHD in Women</title>
 <meta name="description" content="Searchable library of verified research papers.">
-<meta property="og:title" content="Research library · PMDD &amp; AuDHD in Women">
+<meta property="og:title" content="Research library — PMDD &amp; AuDHD in Women">
 <meta property="og:description" content="Searchable library of verified research papers.">
+<meta name="theme-color" content="#6d2a5f">
 <link rel="stylesheet" href="../assets/site.css">
-
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
-<div class="beta" role="note">Beta: this site is new and its guides have not yet been reviewed by clinicians. It is for education and is not medical advice. <a href="../help.html">Need help now?</a></div>
-<header class="site"><div class="bar">
-  <a class="brand" href="../index.html">PMDD &amp; <span>AuDHD</span> in Women</a>
-  <nav class="main" aria-label="Main"><ul><li><a href="../index.html">Home</a></li><li><a href="../start.html">Start here</a></li><li><a href="../topics/index.html">Topics</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../tools.html">Assessment tools</a></li><li><a href="../about.html">About</a></li></ul></nav>
-  <details class="menu"><summary aria-label="Menu">Menu</summary><nav class="main" aria-label="Main (mobile)"><ul><li><a href="../index.html">Home</a></li><li><a href="../start.html">Start here</a></li><li><a href="../topics/index.html">Topics</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../tools.html">Assessment tools</a></li><li><a href="../about.html">About</a></li></ul></nav></details>
-</div></header>
-<main id="content">
+<header class="site">
+  <div class="top">
+    <a class="brand" href="../index.html">PMDD &amp; AuDHD in Women</a>
+    <nav class="main" aria-label="Main"><ul><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../start.html">Start here</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../glossary.html">Glossary</a></li></ul></nav>
+    <details class="menu"><summary>Menu</summary><nav class="main" aria-label="Main"><ul><li><a href="../pmdd.html">PMDD</a></li><li><a href="../audhd.html">AuDHD</a></li><li><a href="../start.html">Start here</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html" aria-current="page">Library</a></li><li><a href="../glossary.html">Glossary</a></li><li><a href="../topics/index.html">Topics</a></li><li><a href="../help.html">Crisis support</a></li></ul></nav></details>
+  </div>
+  <p class="notice">Beta · Guides not yet clinically reviewed · Not medical advice · <a href="../help.html">Crisis support</a></p>
+</header>
+<main id="content"><div class="wide">
 <h1>Research library</h1>
-<p class="lede">561 peer-reviewed papers. Each summary was checked against the paper's abstract and conclusions (or its open full text). Links go to the original paper.</p>
+<p class="lede">561 peer-reviewed papers. Each summary was checked against the paper's abstract and conclusions, or its open full text.</p>
 <div class="filters">
  <input type="search" id="q" placeholder="Search titles, authors, findings" aria-label="Search papers">
  <select id="th" aria-label="Topic"><option value="">All topics</option><option value="01-core-adhd" data-slug="core-adhd">ADHD in women</option><option value="02-giftedness-masking" data-slug="giftedness-masking">Giftedness &amp; masking</option><option value="03-emotion-rejection" data-slug="emotion-rejection">Emotion &amp; rejection sensitivity</option><option value="04-hormones-pmdd" data-slug="hormones-pmdd">Hormones &amp; PMDD</option><option value="05-immune-allergy" data-slug="immune-allergy">Immune system &amp; allergy</option><option value="06-gut-pelvis" data-slug="gut-pelvis">Gut &amp; pelvis</option><option value="07-iron-energy" data-slug="iron-energy">Iron &amp; energy</option><option value="08-circadian-sleep" data-slug="circadian-sleep">Circadian rhythm &amp; sleep</option><option value="09-body-daily-function" data-slug="body-daily-function">Body &amp; daily function</option><option value="10-autism-sensory-burnout" data-slug="autism-sensory-burnout">Autism overlap, sensory &amp; burnout</option><option value="11-life-stages-populations" data-slug="life-stages-populations">Life stages &amp; populations</option></select>
  <select id="gr" aria-label="Evidence grade"><option value="">All grades</option><option value="established">Established</option><option value="supported">Supported</option><option value="preliminary">Preliminary</option></select>
  <label><input type="checkbox" id="oa"> Free to read</label>
 </div>
-<p class="meta" id="count" aria-live="polite">Loading…</p>
-<div id="list"></div>
-<noscript><p>The searchable library needs JavaScript. You can still browse papers on each <a href="../topics/index.html">topic page</a>.</p></noscript>
+<p class="small" id="count" aria-live="polite">Loading…</p><div id="list"></div>
+<noscript><p>Search needs JavaScript. You can browse papers on each <a href="../topics/index.html">topic page</a>.</p></noscript>
 <script>
-const NAMES = {"01-core-adhd": "ADHD in women", "02-giftedness-masking": "Giftedness & masking", "03-emotion-rejection": "Emotion & rejection sensitivity", "04-hormones-pmdd": "Hormones & PMDD", "05-immune-allergy": "Immune system & allergy", "06-gut-pelvis": "Gut & pelvis", "07-iron-energy": "Iron & energy", "08-circadian-sleep": "Circadian rhythm & sleep", "09-body-daily-function": "Body & daily function", "10-autism-sensory-burnout": "Autism overlap, sensory & burnout", "11-life-stages-populations": "Life stages & populations"};
-const GL = {"established": "Established", "supported": "Supported", "preliminary": "Preliminary", "popular-unsupported": "Popular, unsupported"};
-const GO = {established:0, supported:1, preliminary:2};
+const NAMES = {"01-core-adhd": "ADHD in women", "02-giftedness-masking": "Giftedness & masking", "03-emotion-rejection": "Emotion & rejection sensitivity", "04-hormones-pmdd": "Hormones & PMDD", "05-immune-allergy": "Immune system & allergy", "06-gut-pelvis": "Gut & pelvis", "07-iron-energy": "Iron & energy", "08-circadian-sleep": "Circadian rhythm & sleep", "09-body-daily-function": "Body & daily function", "10-autism-sensory-burnout": "Autism overlap, sensory & burnout", "11-life-stages-populations": "Life stages & populations"}, GL = {"established": "Established", "supported": "Supported", "preliminary": "Preliminary", "popular-unsupported": "Unsupported"}, GO = {established:0, supported:1, preliminary:2};
 const e = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let P = [];
 function draw() {
@@ -44,25 +43,22 @@ function draw() {
     .sort((a, b) => (GO[a.grade] ?? 3) - (GO[b.grade] ?? 3) || b.year - a.year);
   document.getElementById('count').textContent = rows.length + ' of ' + P.length + ' papers';
   document.getElementById('list').innerHTML = rows.slice(0, 300).map(p => `<details class="paper"><summary>
-    <span class="t">${e(p.title)}</span><br><span class="meta">${e(p.first_author)} ${p.year} · <i>${e(p.journal)}</i> · ${e(NAMES[p.thread] || '')}</span>
-    <span class="pill g-${e(p.grade)}">${e(GL[p.grade] || p.grade)}</span></summary>
-    <div class="body"><p><b>In plain language:</b> ${e(p.plain_language)}</p><p><b>Key finding:</b> ${e(p.key_finding)}</p>
-    <p class="meta">${e(p.type)} · <a href="https://doi.org/${e(p.doi)}">Read the paper</a>${p.open_access ? ' · free to read' : ''}</p></div></details>`).join('')
-    + (rows.length > 300 ? '<p class="meta">Showing the first 300. Narrow the search to see more.</p>' : '');
+    <span class="t">${e(p.title)}</span><br><span class="small">${e(p.first_author)} ${p.year} · ${e(p.journal)} · ${e(NAMES[p.thread] || '')} · <span class="grade g-${e(p.grade)}">${e(GL[p.grade] || p.grade)}</span></span></summary>
+    <div class="body"><p>${e(p.plain_language)}</p><p class="small"><b>Key finding:</b> ${e(p.key_finding)}</p>
+    <p class="small"><a href="https://doi.org/${e(p.doi)}">Read the paper</a>${p.open_access ? ' · free to read' : ''}</p></div></details>`).join('')
+    + (rows.length > 300 ? '<p class="small">Showing the first 300. Narrow the search to see more.</p>' : '');
 }
 fetch('papers.json').then(r => r.json()).then(d => {
-  P = d;
-  const h = location.hash.slice(1);
-  const opt = [...document.querySelectorAll('#th option')].find(o => o.dataset.slug === h);
-  if (opt) document.getElementById('th').value = opt.value;
-  draw();
+  P = d; const o = [...document.querySelectorAll('#th option')].find(o => o.dataset.slug === location.hash.slice(1));
+  if (o) document.getElementById('th').value = o.value; draw();
 });
 ['q','th','gr','oa'].forEach(id => document.getElementById(id).addEventListener('input', draw));
 </script>
-</main>
-<footer class="site"><div class="bar"><div class="cols">
-  <div><b>PMDD & AuDHD in Women</b><p>Compiled by a scientist with lived experience. Not medical advice.</p></div>
-  <div><ul><li><a href="../help.html">Crisis and support</a></li><li><a href="../about.html#method">How we grade evidence</a></li><li><a href="../about.html#corrections">Corrections</a></li><li><a href="../about.html#privacy">Privacy: no cookies, no tracking</a></li></ul></div>
-  <div><ul><li><a href="../topics/index.html">Topics</a></li><li><a href="../guides/index.html">Guides</a></li><li><a href="../claims/index.html">Claim check</a></li><li><a href="../library/index.html">Research library</a></li><li><a href="../books.html">Books and guidelines</a></li></ul></div>
-</div></div></footer>
+</div></main>
+<footer class="site"><div class="inner">
+  <span>PMDD &amp; AuDHD in Women</span>
+  <a href="../topics/index.html">Topics</a><a href="../tools.html">Assessment tools</a><a href="../books.html">Books</a>
+  <a href="../about.html">About</a><a href="../about.html#method">Evidence grades</a><a href="../help.html">Crisis support</a>
+  <span>Not medical advice · No cookies or tracking</span>
+</div></footer>
 </body></html>
