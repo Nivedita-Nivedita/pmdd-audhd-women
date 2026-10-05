@@ -8,6 +8,9 @@
 <meta property="og:title" content="Research library — PMDD &amp; AuDHD in Women">
 <meta property="og:description" content="Searchable library of verified research papers.">
 <meta name="theme-color" content="#1E3A9E">
+<link rel="canonical" href="https://www.n-nivedita.com/pmdd-audhd-women/library/index.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.n-nivedita.com/pmdd-audhd-women/library/index.html">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="preload" href="../fonts/Lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
@@ -25,42 +28,46 @@
 </header>
 <main id="content"><div class="wide">
 <h1>Research library</h1>
-<p class="lede">609 peer-reviewed papers. Each summary was checked against the paper's abstract and conclusions, or its open full text.</p>
+<p class="lede">609 peer-reviewed papers, each with a plain-language summary.</p>
+<p class="note small">How these were checked: each paper's details were matched to its DOI record, and each summary was compared with the paper's abstract and conclusions (or its open full text where there is no abstract). This confirms we summarised the abstract fairly; it does not replace reading the full paper, and abstracts often leave out eligibility, harms and subgroup details. Summaries have not yet been reviewed by clinicians. Grades on papers describe our rating of the study's design and quality, not a recommendation.</p>
 <div class="filters">
- <input type="search" id="q" placeholder="Search titles, authors, findings" aria-label="Search papers">
+ <input type="search" id="q" placeholder="Search titles, authors, findings, DOI or year" aria-label="Search papers">
  <select id="th" aria-label="Topic"><option value="">All topics</option><option value="01-core-adhd" data-slug="core-adhd">ADHD in women</option><option value="02-giftedness-masking" data-slug="giftedness-masking">Giftedness &amp; masking</option><option value="03-emotion-rejection" data-slug="emotion-rejection">Emotion &amp; rejection sensitivity</option><option value="04-hormones-pmdd" data-slug="hormones-pmdd">Hormones &amp; PMDD</option><option value="05-immune-allergy" data-slug="immune-allergy">Immune system &amp; allergy</option><option value="06-gut-pelvis" data-slug="gut-pelvis">Gut &amp; pelvis</option><option value="07-iron-energy" data-slug="iron-energy">Iron &amp; energy</option><option value="08-circadian-sleep" data-slug="circadian-sleep">Circadian rhythm &amp; sleep</option><option value="09-body-daily-function" data-slug="body-daily-function">Body &amp; daily function</option><option value="10-autism-sensory-burnout" data-slug="autism-sensory-burnout">Autism overlap, sensory &amp; burnout</option><option value="11-life-stages-populations" data-slug="life-stages-populations">Life stages &amp; populations</option></select>
  <select id="gr" aria-label="Evidence grade"><option value="">All grades</option><option value="established">Established</option><option value="supported">Supported</option><option value="preliminary">Preliminary</option></select>
  <label><input type="checkbox" id="oa"> Free to read</label>
 </div>
-<p class="small" id="count" aria-live="polite">Loading…</p><div id="list"></div>
+<p class="small" id="count" role="status" aria-live="polite">Loading…</p><div id="list"></div>
+<p><button type="button" id="more" class="linkish" hidden>Show more</button></p>
 <noscript><p>Search needs JavaScript. You can browse papers on each <a href="../topics/index.html">topic page</a>.</p></noscript>
 <script>
 const NAMES = {"01-core-adhd": "ADHD in women", "02-giftedness-masking": "Giftedness & masking", "03-emotion-rejection": "Emotion & rejection sensitivity", "04-hormones-pmdd": "Hormones & PMDD", "05-immune-allergy": "Immune system & allergy", "06-gut-pelvis": "Gut & pelvis", "07-iron-energy": "Iron & energy", "08-circadian-sleep": "Circadian rhythm & sleep", "09-body-daily-function": "Body & daily function", "10-autism-sensory-burnout": "Autism overlap, sensory & burnout", "11-life-stages-populations": "Life stages & populations"}, GL = {"established": "Established", "supported": "Supported", "preliminary": "Preliminary", "popular-unsupported": "Unsupported"}, GO = {established:0, supported:1, preliminary:2};
 const e = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let P = [];
+let P = [], SHOWN = 50;
+document.getElementById('more').addEventListener('click', () => { SHOWN += 50; draw(); });
 function draw() {
   const q = document.getElementById('q').value.toLowerCase(), th = document.getElementById('th').value,
         gr = document.getElementById('gr').value, oa = document.getElementById('oa').checked;
   const rows = P.filter(p => (!th || p.thread === th) && (!gr || p.grade === gr) && (!oa || p.open_access) &&
-    (!q || [p.title, p.first_author, p.journal, p.plain_language, p.key_finding].join(' ').toLowerCase().includes(q)))
+    (!q || [p.title, p.first_author, p.journal, p.plain_language, p.key_finding, p.doi, String(p.year)].join(' ').toLowerCase().includes(q)))
     .sort((a, b) => (GO[a.grade] ?? 3) - (GO[b.grade] ?? 3) || b.year - a.year);
-  document.getElementById('count').textContent = rows.length + ' of ' + P.length + ' papers';
-  document.getElementById('list').innerHTML = rows.slice(0, 300).map(p => `<details class="paper"><summary>
+  document.getElementById('count').textContent = rows.length ? (rows.length + ' of ' + P.length + ' papers') : 'No papers match. Try fewer words, a DOI, an author or a year.';
+  document.getElementById('more').hidden = rows.length <= SHOWN;
+  document.getElementById('list').innerHTML = rows.slice(0, SHOWN).map(p => `<details class="paper"><summary>
     <span class="t">${e(p.title)}</span><br><span class="small">${e(p.first_author)} ${p.year} · ${e(p.journal)} · ${e(NAMES[p.thread] || '')} · <span class="grade g-${e(p.grade)}">${e(GL[p.grade] || p.grade)}</span></span></summary>
     <div class="body"><p>${e(p.plain_language)}</p><p class="small"><b>Key finding:</b> ${e(p.key_finding)}</p>
     <p class="small"><a href="https://doi.org/${e(p.doi)}">Read the paper</a>${p.open_access ? ' · free to read' : ''}</p></div></details>`).join('')
-    + (rows.length > 300 ? '<p class="small">Showing the first 300. Narrow the search to see more.</p>' : '');
+    ;
 }
-fetch('papers.json').then(r => r.json()).then(d => {
+fetch('papers.json').then(r => { if (!r.ok) throw new Error(); return r.json(); }).then(d => {
   P = d; const o = [...document.querySelectorAll('#th option')].find(o => o.dataset.slug === location.hash.slice(1));
   if (o) document.getElementById('th').value = o.value; draw();
-});
-['q','th','gr','oa'].forEach(id => document.getElementById(id).addEventListener('input', draw));
+}).catch(() => { document.getElementById('count').textContent = "The library didn't load. Refresh the page, or browse papers on each topic page."; });
+['q','th','gr','oa'].forEach(id => document.getElementById(id).addEventListener('input', () => { SHOWN = 50; draw(); }));
 </script>
 </div></main>
 <footer class="site"><div class="inner">
   <span>PMDD &amp; AuDHD in Women</span>
-  <a href="../topics/index.html">Topics</a><a href="../tools.html">Assessment tools</a><a href="../books.html">Books</a>
+  <a href="../topics/index.html">Topics</a><a href="../tools.html">Assessment tools</a><a href="../books.html">Books</a><a href="../references.html">Guidelines</a>
   <a href="../about.html">About</a><a href="../about.html#method">Evidence grades</a><a href="../help.html">Crisis support</a>
   <a href="../index.html#share">Share with us</a><span>Not medical advice · No cookies or tracking</span>
 </div></footer>

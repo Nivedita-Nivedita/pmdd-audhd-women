@@ -188,6 +188,7 @@ footer a { color:var(--faint); }
 .urgent-box { border-left:4px solid var(--u); background:var(--tint); padding:14px 18px; border-radius:0; margin:0 0 1.2em; }
 .urgent-box p:last-child { margin-bottom:0; }
 a.call { font-weight:500; white-space:nowrap; }
+.linkish { font:inherit; color:var(--accent); background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; }
 .theme-toggle { font:inherit; font-size:.88rem; color:var(--accent); background:var(--tint); border:0; border-radius:999px; padding:6px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; }
 .theme-toggle:hover { outline:2px solid var(--accent); }
 .theme-toggle svg { width:16px; height:16px; }
